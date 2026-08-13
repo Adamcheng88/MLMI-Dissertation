@@ -1,6 +1,8 @@
 # Supporting Domain Expert Sensemaking of Agent Generated Decision Trees
 
-DEFT HCI user study interface — an Express + SQLite backend with a React frontend for exploring, configuring, and evaluating agent-generated decision trees.
+An Express + SQLite backend with a React frontend for exploring, configuring, and evaluating agent-generated decision trees.
+View a live demo of the main tree canvas page [here](https://ac2802.iis-lab.space/expert). Please reach out if you wish to walk through other interface components.
+
 
 ## Structure
 
