@@ -1,0 +1,292 @@
+Adam Cheng  0:00  
+I guess interactive portion. So, do you actually work with the sequence data sort of on a day to day basis? Do you like go interact with with like the data sets that you've sent us, for example? And like, do you do you have to go and and look through that data regularly?
+
+Ben  0:15  
+Yeah, yeah, yeah. I process the raw the raw files all the way down to to to you know, or we can view it on genome browsers and do statistics and make plots and things. Yeah,
+
+Adam Cheng  0:28  
+got it. So, so could you describe sort of briefly your day-to-day workflow with with the data? Like, yeah, what what you typically tend to do, what softwares you use, and those kinds of things.
+
+Ben  0:38  
+Yeah. So I have some so snake make pipeline set up where you know I can give it the file names, and then it'll run through you know fastqc and some trimming tools like Cut Adapt or BB Duke, depending on whether we're we're talking about ChipSeq, NetSeq, and then process them with Bowtie or Star, and then take deep tools and make bigwig files and matrix files, so then we can further analyze them.
+
+Adam Cheng  1:30  
+Got it. Okay, I'm not familiar with all of those tools, but it sort of seems like to me that it's mostly a lot of like data pre-processing and cleaning and sort of those steps to sort of get the dataset in shape so that it can be sort of looked at further by by the professor or other other people. Is that correct?
+
+Ben  1:48  
+Yeah, yeah.
+
+Adam Cheng  1:50  
+Okay, got it. Yeah. So basically, the tool that's been created here, you can go ahead and I guess open that link.
+
+Ben  2:00  
+Yeah.
+
+Adam Cheng  2:00  
+I'll share my screen and just give you a brief overview. So, essentially, what this is, I'm not sure. Have you seen the previous implementation of this interface for Deft previously?
+
+Ben  2:11  
+I haven't. No.
+
+Adam Cheng  2:12  
+Okay. So it's sort of trying to be sort of a more effective version of that interface. So what Deft is is this decision tree that is used to classify pause sites and non-pause sites within within some sort of RNA sequence. I'm not a biologist myself, so bear with me. But essentially, in this decision tree, class one would be pause sites, predicted pause sites, and class two would be predicted non-pause sites, and this decision tree is sort of classifying those sites using these various nodes that will create these splits in the data and determine, I guess, what data we think is more likely to be a pause site and more likely to be a non-paus site. We can interact sort of with all of these nodes by clicking on them, which will bring up a sidebar with additional information. You can go scroll through that at your leisure, and there will be some like question marks in case you want to, I guess, see a little bit more detail about what exactly each of these things are. There's also some additional ways of filtering the data on the left-hand side, such as viewing depth and decision cutoff and display modes. And lastly, there's sort of like an Ask AI feature, so you can ask sort of an integrated agent about the tree and anything related to it. So there's two modes to this. There's an Ask mode and an advise mode. So the ask mode here, for example, would be if you're like you have a question, you're unclear about some aspect of the tree or like how the tree works, then you could ask any of those questions. Advise would be is if you're to want to make changes to this tree in the future. So let's say you want to make a change to a node, and you want the the agent to be able to regenerate that node using some new context that you provided in the future, then you would give that as advice. So yeah, so basically, all that would be what would be helpful is if you could just go through the interface and just give us your thoughts about you know what what you what you understand, what you might not understand, what exactly how you're making sense of each of the components, and just anything that comes to mind as you go through it. So there's no necessarily particular goal, but maybe if you could just share your screen and just try interacting with the dataset, yeah, within within the interface, that would be great.
+
+Ben  4:39  
+Okay. Yeah. Okay. That is just a summary of what pops up over here. Cool.
+
+Adam Cheng  5:37  
+Sorry, the zoom. You can just sort of zoom in and out with a trackpad or mouse if you have one.
+
+Ben  5:41  
+Oh, okay, I see. Yeah, that makes sense. And just trims it down to levels, or. Okay. Yeah, seems to be very smooth. Yeah,
+
+Adam Cheng  6:28  
+got it. And so, do you have any thoughts about? I guess those features you just interacted with-do they make sense to you? Do you think? How do you think they're implemented? Any thoughts?
+
+Ben  6:42  
+Yeah, it looks great. I don't know if you have like a a mode where, I mean, it's just visual, but you know, like shrinking these down to smaller so smits fits in a smaller, you know, quick display or something like that.
+
+Adam Cheng  7:05  
+Yeah, I guess it would be mostly the zoom then. But there is a way to sort of minimize parts of the graphs. If you see those little semicircles below each each node, you can collapse sort of individual parts of the tree if you want to clean it up. Sorry, it might be a bit higher. Yeah, yeah. If you just click, click on it. Sorry, that's that's a bit strange. Hold on. Oh,
+
+Ben  7:35  
+there we
+
+Adam Cheng  7:36  
+go. Oh, there. Okay.
+
+Ben  7:37  
+Yeah, probably zoomed out a little too far. Okay. Cool.
+
+Adam Cheng  7:45  
+Got it. And sort of does the way that the tree sort of displays how the data split make sense to understand, I guess, what sort of decision the tree is making at each node.
+
+Ben  8:04  
+Yeah, yeah. There's. Yep, all the information's there. Yeah.
+
+Adam Cheng  8:10  
+Got it. And when it comes to the information on the sidebar, so the thing on the right-hand side. Does that sort of all make sense? Do you think it's presented in a way that, yeah, gives you what you need to know? And is there anything confusing that maybe you don't understand or, yeah, could be shown better?
+
+Ben  8:49  
+No, looks very thorough, and yeah, little help icons, great.
+
+Adam Cheng  8:56  
+Got it. And I guess yeah, one of the important. Sorry, go ahead. Did you have something else to say?
+
+Ben  9:03  
+John, I was gonna say it looks really good.
+
+Adam Cheng  9:05  
+Oh, thank you so much. Yeah, I guess like one of the important parts of this is like highlighting decision paths. So as you can see on the sideboard there, there's like a description of how we get to a particular node from the from the root. So I guess does does that process make sense? Let's say like you click on one of these root nodes, like I don't know one of those on the very on the sort of bottom. It'll highlight sort of a path for you once you click on that. Do is that a helpful thing? Would how how do you?
+
+Ben  9:42  
+Yeah, studies helpful. Yeah,
+
+Adam Cheng  9:45  
+got it. Great. Okay, awesome. So, I guess one other thing we could explore is the like sort of AI agent that's embedded in this. So, if you look on the bottom right, there's a little Ask AI button, so if you have any question, you can make up a question. Doesn't have to be, you know, anything or like it doesn't have to really be something you don't understand. But maybe you could give it a question and just see how it responds. If you want to ask a question on a specific node, you can add that node as a as a piece of context to this conversation by holding down shift and then clicking on the node that you want to add. So if you want to ask about a particular node, you could you could you could do that.
+
+Ben  10:33  
+Okay.
+
+Adam Cheng  10:44  
+Yes, you might have to reopen there.
+
+Ben  10:47  
+Yeah. Oh, when it's open, yeah. Oh, okay. Okay. Let's see.
+
+Adam Cheng  11:16  
+Or if you want to submit a piece of sort of advice instead, you want the agent to make some sort of change to the interface or to to the node based off of your your advice. You can go ahead and do that and click the green button instead.
+
+Ben  11:34  
+How to like reevaluate the the data, or
+
+Adam Cheng  11:40  
+yeah, perhaps if you you know found some issue in in the node, you don't think that some characteristic of it is correct, and you want on sort of like the next generation of this tree the agents to take that into consideration, you could pass that piece of advice on, basically.
+
+Ben  12:01  
+Okay. Okay. Yeah, sir. I I I'm not thinking of anything to ask at this second. Okay. Sure.
+
+Adam Cheng  12:07  
+Yeah. Yeah. Sounds good.
+
+John Dudley  12:15  
+Yeah.
+
+Ben  12:16  
+Did have maybe when selecting a new node, that this like snaps back to the top.
+
+Adam Cheng  12:25  
+Okay. Yeah. Be
+
+Ben  12:27  
+some something.
+
+John Dudley  12:29  
+Okay.
+
+Adam Cheng  12:33  
+But yeah, I guess since you are sort of familiar with this particular data set, I guess does this help you see it in a little bit of a more visual way. Does it help you see it in a different way? Is it more effective or less effective? How how do you think about about
+
+Ben  12:52  
+it? Yeah, this is very effective. It's I really like the approach you guys came up with.
+
+Adam Cheng  13:04  
+Got it. Great.
+
+Ben  13:10  
+Yeah.
+
+Adam Cheng  13:11  
+Yeah. I guess. Yeah. If you have any other thoughts specifically, let me know.
+
+Ben  13:18  
+Okay. Yeah.
+
+Adam Cheng  13:20  
+Okay. Great. But if if not, like immediately, we can just go keep going on with the survey. So there'll be some other questions. You can feel free to not share your screen if you'd like. But there'll be some more follow up questions about your experience using the interface, and then some other sort of interview questions that we'll go over in a in a in a couple minutes once you're done.
+
+Ben  13:46  
+Okay. Okay. So continue on the survey when I'm ready. Yeah.
+
+Speaker 1  13:49  
+Yep.
+
+Ben  13:50  
+Okay.
+
+Adam Cheng  13:52  
+Yes, it'll just be a couple of ah sort of checkbox questions, and then let me know when you're done.
+
+Ben  13:56  
+Okay. Okay. Great. Okay.
+
+Adam Cheng  15:17  
+So you're done with that portion. Great.
+
+Ben  15:18  
+Yep.
+
+Adam Cheng  15:19  
+Yeah. So now I just guess it would be great to get some more qualitative feedback on like your overall overall experience. So I guess first starting with just like your overall impressions using the interface, like what did you find helpful, and like where would you need more support to get the most out of the interface? If you if there's any examples specifically about like what you've what aspects did you find particularly useful or you felt could be improved?
+
+Ben  15:52  
+I don't think there's much improvement needed.
+
+Adam Cheng  16:00  
+Good to hear. Yeah,
+
+Ben  16:01  
+it looks really good.
+
+Speaker 2  16:04  
+Great.
+
+Ben  16:05  
+Yeah, just you know, like when you select a node and the text box pops up, it makes it more clear that you've selected something new if it you know jumps back to the top of the text box. So,
+
+Adam Cheng  16:15  
+got it. Were there, I guess, any particular features that you went through of the interface that stood out in particular, or was it all about, you know, the same?
+
+Ben  16:32  
+It's all about the same. It was very impressive. It's very impressive.
+
+Adam Cheng  16:36  
+Okay, so I guess the next question, like, do you see the system supporting, you know, aspects of your workflow going forward, or does it? Do you think it would be able to enable you to do things that were originally not possible or more cumbersome to do? And if you have any examples of those, would be great to hear. Yeah.
+
+Ben  17:00  
+Yeah, it would definitely be helpful in organizing a lot of, you know, well, the decision tree. I haven't used this approach in the past, but yeah, it would be very helpful in parsing out data. Yeah,
+
+Adam Cheng  17:26  
+and would that be from like a visualization aspect? Like, I guess do you would you be able to provide an example, maybe like of a real life use case, like where this would slot in with like the other tools you use, or maybe the other workflow that you currently use.
+
+Ben  17:49  
+Yeah, so like when we're exploring, yeah, like you know, a drug interaction or something, it would be nice to be able to like pull out, you know, subsets of genes that behave one way or another, and you know, explore, you know, what are the common different, you know, things are in common, things are different between them.
+
+Adam Cheng  18:15  
+Got it.
+
+Ben  18:17  
+Definitely help for like, yeah, presenting, understanding that data, and presenting it, yeah.
+
+Adam Cheng  18:22  
+Okay, sounds great. And I know you mentioned sort of that that one piece of feedback about the the sidebar. So snapping back to the the top. Were there any other sort of I guess larger features even that you think could be helpful to implement in the future, or like anything else that you think could be improved in the system.
+
+Ben  18:45  
+I didn't notice anything else. No.
+
+Adam Cheng  18:48  
+Okay, great. Yeah, and I know you sort of didn't weren't able didn't you know have anything necessarily to ask the agent right away. Obviously, like that's difficult to do. But do you think it would sort of provide any sort of value that that AI helper agent in the in the interface? Do you think it would provide value to users? And I guess how much do you think you could trust the like insights and advice it provides?
+
+Ben  19:19  
+I think it's definitely helpful, and yeah, it's a good addition as far as trust as much as you can for LLMs. Yeah, got it. So it
+
+Adam Cheng  19:39  
+would be sort of you would you would rather sort of I guess take a look at something on your own first rather than use that use that LLM, I suppose.
+
+Ben  19:52  
+Um. Yeah. Well, then I could have like instead of like a guided tour. Yeah, be be able to look at it first, and then maybe ask specific questions. Yeah,
+
+Adam Cheng  20:06  
+got it. Okay, great. Yeah, and just very open endedly. Do you think is there any other feedback that you think you would like to give that you that we haven't sort of gone over yet?
+
+Ben  20:21  
+I don't have anything. Nope.
+
+Adam Cheng  20:24  
+Great. Yeah, John, do you have any other questions? I
+
+John Dudley  20:27  
+was just going to ask. Do you have do you have any other data sets that you think would be like helpful to to take a look at with this tool, or is that something you'd be interested in doing? yeah,
+
+Ben  20:43  
+yes, yeah. We we have a project that we are working on right now that this would be very useful. Yeah.
+
+John Dudley  20:56  
+Okay. Would is a yeah. I guess we can we can speak to people on our end and see if that might be possible. Obviously, we're in this project. We're primarily working on the front end, and the the the back end is something that I know Professor Bentley and Professor Vandershaw have been working on together. But yeah, I think it'd be interesting if if there's if there's interest, you know, to look at it on a novel on a novel problem, a novel data set.
+
+Ben  21:27  
+Okay.
+
+John Dudley  21:28  
+Yeah.
+
+Ben  21:29  
+Yeah. Yeah. We have a couple of data sets done, and then a few more that we should be getting the data back for soon. And and
+
+Adam Cheng  21:41  
+is it still the same sort of context of like paw site, non pause site classification, or is it different?
+
+Ben  21:46  
+Not exactly. This is more of the the RNA state, whether they're capped or decapped when they're first being made.
+
+John Dudley  21:59  
+Okay,
+
+Adam Cheng  22:00  
+I see. But still, it's still another like binary classification of like two different classes, like capped or non-capt. Okay,
+
+Ben  22:07  
+yeah,
+
+Adam Cheng  22:08  
+got it. Yeah, that could be interesting to look at, explore in the future. So, I guess yeah, we'll we'll look into that further. But yeah, I guess if there's nothing else, yeah, thank you so much for your time. It was super helpful to be able to hear your insights. Yeah,
+
+Ben  22:25  
+yeah, yeah.
+
+Adam Cheng  22:26  
+Great,
+
+Ben  22:27  
+that's really good. Yeah, thank
+
+John Dudley  22:29  
+thank you very much for your time, Ben. It's great. Yeah, you Ben. Awesome.
+
+Ben  22:32  
+Okay.
+
+John Dudley  22:32  
+Yeah. Bye bye. Bye.
+
+Transcribed by https://otter.ai

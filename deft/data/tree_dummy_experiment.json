@@ -1,0 +1,281 @@
+{
+  "meta": {
+    "dataset_csv": "dummy_experiment_dataset.csv",
+    "sequence_column": null,
+    "target_column": "will_purchase",
+    "max_depth": 3,
+    "n_train": 4000,
+    "n_test": 1000,
+    "n_pos_train": 1800,
+    "n_neg_train": 2200,
+    "test_size": 0.2,
+    "random_state": 42,
+    "test_accuracy": 0.78,
+    "test_auc": 0.82,
+    "fit_seconds": 2.5,
+    "input": {
+      "dataset_csv": "dummy_experiment_dataset.csv",
+      "output_dir": ".deft_dummy_experiment",
+      "target_column": "will_purchase",
+      "test_size": 0.2,
+      "max_depth": 3,
+      "random_state": 42,
+      "min_samples_leaf_fraction": 0.03,
+      "target_name": "Will a website visitor purchase a product? (Class 1 = Yes, Class 2 = No)",
+      "dataset_info": "Synthetic customer records describing whether a visitor ends up purchasing an online product. Features include age group, visit duration, number of pages viewed, and whether a discount was shown.",
+      "llm_models": "dummy",
+      "llm": "dummy",
+      "n_samples_per_prompt": 4
+    }
+  },
+  "nodes": [
+    {
+      "id": "root",
+      "depth": 0,
+      "parent_id": null,
+      "side": null,
+      "is_leaf": false,
+      "prediction": 0.45,
+      "n": 4000,
+      "n_pos": 1800,
+      "n_neg": 2200,
+      "feature": {
+        "name": "saw_discount_banner",
+        "description": "Check whether the visitor saw a visible discount banner during their visit (1 = saw a discount, 0 = did not).",
+        "rationale": "Seeing a clear discount offer is an easy-to-understand signal that often increases the chance of purchasing. It is also simple and intuitive for non-experts.",
+        "code": "def saw_discount_banner(X):\n    return X['saw_discount_banner'].astype(int)",
+        "threshold": 0.5,
+        "score": 0.32
+      },
+      "left": "rootL",
+      "right": "rootR"
+    },
+
+    {
+      "id": "rootL",
+      "depth": 1,
+      "parent_id": "root",
+      "side": "L",
+      "is_leaf": false,
+      "prediction": 0.35,
+      "n": 2500,
+      "n_pos": 875,
+      "n_neg": 1625,
+      "feature": {
+        "name": "visit_duration_minutes",
+        "description": "Total time (in minutes) the visitor spent on the site during this session.",
+        "rationale": "Visitors who stay longer usually show more interest, so time on site is a straightforward predictor.",
+        "code": "def visit_duration_minutes(X):\n    return X['visit_duration_minutes']",
+        "threshold": 4.0,
+        "score": 0.24
+      },
+      "left": "rootLL",
+      "right": "rootLR"
+    },
+    {
+      "id": "rootR",
+      "depth": 1,
+      "parent_id": "root",
+      "side": "R",
+      "is_leaf": false,
+      "prediction": 0.62,
+      "n": 1500,
+      "n_pos": 925,
+      "n_neg": 575,
+      "feature": {
+        "name": "pages_viewed",
+        "description": "Number of distinct product or information pages the visitor looked at during the session.",
+        "rationale": "Looking at more pages is an easy-to-understand sign of stronger interest in the product.",
+        "code": "def pages_viewed(X):\n    return X['pages_viewed']",
+        "threshold": 3.0,
+        "score": 0.28
+      },
+      "left": "rootRL",
+      "right": "rootRR"
+    },
+
+    {
+      "id": "rootLL",
+      "depth": 2,
+      "parent_id": "rootL",
+      "side": "L",
+      "is_leaf": false,
+      "prediction": 0.22,
+      "n": 1500,
+      "n_pos": 330,
+      "n_neg": 1170,
+      "feature": {
+        "name": "age_under_30",
+        "description": "Check whether the visitor is under 30 years old (1 = age < 30, 0 = age ≥ 30).",
+        "rationale": "Younger visitors without a discount and with short visits are less likely to purchase in this synthetic scenario.",
+        "code": "def age_under_30(X):\n    return (X['age'] < 30).astype(int)",
+        "threshold": 0.5,
+        "score": 0.18
+      },
+      "left": "rootLLL",
+      "right": "rootLLR"
+    },
+    {
+      "id": "rootLR",
+      "depth": 2,
+      "parent_id": "rootL",
+      "side": "R",
+      "is_leaf": false,
+      "prediction": 0.52,
+      "n": 1000,
+      "n_pos": 545,
+      "n_neg": 455,
+      "feature": {
+        "name": "added_to_cart",
+        "description": "Check whether the visitor added at least one item to their shopping cart in this session.",
+        "rationale": "Adding an item to the cart is a simple, concrete step that almost always increases purchase likelihood.",
+        "code": "def added_to_cart(X):\n    return X['added_to_cart'].astype(int)",
+        "threshold": 0.5,
+        "score": 0.30
+      },
+      "left": "rootLRL",
+      "right": "rootLRR"
+    },
+    {
+      "id": "rootRL",
+      "depth": 2,
+      "parent_id": "rootR",
+      "side": "L",
+      "is_leaf": false,
+      "prediction": 0.54,
+      "n": 700,
+      "n_pos": 378,
+      "n_neg": 322,
+      "feature": {
+        "name": "visit_duration_minutes",
+        "description": "Total time (in minutes) the visitor spent on the site during this session.",
+        "rationale": "Among visitors who saw a discount and several pages, staying longer is still a clear signal of commitment.",
+        "code": "def visit_duration_minutes(X):\n    return X['visit_duration_minutes']",
+        "threshold": 6.0,
+        "score": 0.17
+      },
+      "left": "rootRLL",
+      "right": "rootRLR"
+    },
+    {
+      "id": "rootRR",
+      "depth": 2,
+      "parent_id": "rootR",
+      "side": "R",
+      "is_leaf": false,
+      "prediction": 0.72,
+      "n": 800,
+      "n_pos": 547,
+      "n_neg": 253,
+      "feature": {
+        "name": "returned_within_7_days",
+        "description": "Check whether this visitor had another session on the website within the last 7 days.",
+        "rationale": "Recently returning visitors who saw a discount and looked at several pages are very likely to buy.",
+        "code": "def returned_within_7_days(X):\n    return X['returned_within_7_days'].astype(int)",
+        "threshold": 0.5,
+        "score": 0.26
+      },
+      "left": "rootRRL",
+      "right": "rootRRR"
+    },
+
+    {
+      "id": "rootLLL",
+      "depth": 3,
+      "parent_id": "rootLL",
+      "side": "L",
+      "is_leaf": true,
+      "prediction": 0.15,
+      "n": 900,
+      "n_pos": 135,
+      "n_neg": 765,
+      "feature": null
+    },
+    {
+      "id": "rootLLR",
+      "depth": 3,
+      "parent_id": "rootLL",
+      "side": "R",
+      "is_leaf": true,
+      "prediction": 0.34,
+      "n": 600,
+      "n_pos": 195,
+      "n_neg": 405,
+      "feature": null
+    },
+    {
+      "id": "rootLRL",
+      "depth": 3,
+      "parent_id": "rootLR",
+      "side": "L",
+      "is_leaf": true,
+      "prediction": 0.44,
+      "n": 450,
+      "n_pos": 198,
+      "n_neg": 252,
+      "feature": null
+    },
+    {
+      "id": "rootLRR",
+      "depth": 3,
+      "parent_id": "rootLR",
+      "side": "R",
+      "is_leaf": true,
+      "prediction": 0.63,
+      "n": 550,
+      "n_pos": 347,
+      "n_neg": 203,
+      "feature": null
+    },
+    {
+      "id": "rootRLL",
+      "depth": 3,
+      "parent_id": "rootRL",
+      "side": "L",
+      "is_leaf": true,
+      "prediction": 0.47,
+      "n": 320,
+      "n_pos": 150,
+      "n_neg": 170,
+      "feature": null
+    },
+    {
+      "id": "rootRLR",
+      "depth": 3,
+      "parent_id": "rootRL",
+      "side": "R",
+      "is_leaf": true,
+      "prediction": 0.60,
+      "n": 380,
+      "n_pos": 228,
+      "n_neg": 152,
+      "feature": null
+    },
+    {
+      "id": "rootRRL",
+      "depth": 3,
+      "parent_id": "rootRR",
+      "side": "L",
+      "is_leaf": true,
+      "prediction": 0.66,
+      "n": 420,
+      "n_pos": 277,
+      "n_neg": 143,
+      "feature": null
+    },
+    {
+      "id": "rootRRR",
+      "depth": 3,
+      "parent_id": "rootRR",
+      "side": "R",
+      "is_leaf": true,
+      "prediction": 0.79,
+      "n": 380,
+      "n_pos": 270,
+      "n_neg": 110,
+      "feature": null
+    }
+  ],
+  "root_id": "root"
+}
+

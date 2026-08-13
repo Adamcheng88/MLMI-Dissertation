@@ -1,0 +1,100 @@
+Adam Cheng  0:00  
+For your like overall impression, what did you find helpful? Where do you think you would need more support? Just like general thoughts about yeah, how it was to use use the interface.
+
+Ryan Sheridan  0:10  
+I thought it seemed pretty pretty good. Yeah, I mean you know you can I like how you can click all the leaves, right? You can see exactly the path right that led to that that leaf. You get the description of each, you know, for each leaf. I mean, to me, that seems very very useful. Yeah, yeah, and then the agent. Yeah, I mean that you can ask it this or that, and then I mean, I guess I didn't really go through the moda, you know, the modifying the tree, but that also seems, you know, really useful. Obviously, with this type of analysis, could be, you know, features that come out that are obviously, you know, technical artifact, some type of background signal. That seems like good feedback to provide to the agent. So, you know that seems like a very useful feature. Yeah,
+
+Adam Cheng  1:04  
+got it. Yeah, and I guess next question being like around like how it could support your workflow. So I know you don't necessarily you know interact with this data necessarily day to day, but I guess do you see the system supporting aspects of your workflow or allowing you to do things that were either not possible to do before or more difficult to do, and I guess yeah. If so, if you have any examples of that,
+
+Ryan Sheridan  1:29  
+I think I mean when I went through it, this seemed like something that is really good for like sharing the results, sort of, right? Yeah, to perhaps somebody who doesn't have a lot of experience analyzing the data, right? I mean, the graphical interface and all that. You know, like David doesn't have you know a ton of bioinformatics, you know, experience. So it seems like something really good, or you know, like for example, if me or Samin Davis Lab ran the analysis, and then they could send the results to him through this platform, so that he can, you know, visualize the results. Right. That's not entirely the workflow, though. You would run everything through the graphical interface, right? The depth, the whole depth analysis. Okay, so anyways, it seems it seems like something really great for someone who doesn't normally, you know, perform this type of analysis or use bioinformatics tools. Yeah, but I mean, I would use it also though. Yeah, I think being able to visualize the tree is is very useful. Yeah, and can I?
+
+John Dudley  2:46  
+Oh, sorry.
+
+Speaker 1  2:46  
+Yeah,
+
+John Dudley  2:47  
+go ahead, Adam.
+
+Adam Cheng  2:48  
+Oh no, no. I mean, I guess are there any other features? I know we sort of discussed, like, for example, showing the motif somewhere in the interface. But besides that, are there other features that you would have liked to see implemented, or are there other aspects of the system that you think could be improved in some way?
+
+Ryan Sheridan  3:04  
+Not that we haven't discussed. Yeah, I mean, for me, the biggest thing number one is being being able to compare between samples in some way, treatment conditions or something like that. And then the other one, yeah, is sort of what we are also already discussed, which is yeah, kind of the somehow visualizing the motif in some way whenever that's, but nothing else that really comes to mind. I think it it seems like a pretty you know, you know a pretty sharp interface and everything. Yeah.
+
+Adam Cheng  3:42  
+Sorry, John. Did you have a? Yeah, I was just.
+
+John Dudley  3:43  
+Do you mind just talking a little bit more about this? What you were saying about comparing for so the same tree comparing the data two different data sets. What would you typically be looking for in that context? A
+
+Ryan Sheridan  3:55  
+change in. I mean, so with this pause data set, you know, one thought is that you know the the requirements for pausing could differ between like a mutant versus kind of a wild type, you know, sample, right? And so the sequence context could then also differ, right? And so I mean, initially, it seems like perhaps the simplest way was would be to run sort of your control data through it, right? So you get one tree, right? And then you see, you know, like this leaf, you know, this pathway, you know, shows, you know, 90% of the, you know, data points that filter through or the sites that filter through are pauses, right? Right? How does that feature look when you use this other data set, right? So when it filters through the tree, maybe that feature it's like 50-50 doesn't discriminate at all, right? That would provide information that you know that somehow you know this mutant is now changing kind of the sequence constraints of this biological you know event.
+
+John Dudley  5:01  
+Do do you and you guys have such data sets? Like
+
+Ryan Sheridan  5:05  
+we we haven't been able to find good examples where the sequences that we've seen that are surrounding these pauses differs, but we haven't done this type of analysis before. Like before this, the main sequence, you know, kind of motif that we found was essentially a single, you know, base at the position, and a base, you know, like after it, right? It was very, it wasn't especially, you know, it was just a couple bases, right? So we haven't been able to see that those change that we've identified as related with pause sites, but we, you know, but we haven't identified the features like that Deft has in this level of detail. So it could be, you know, that these more fine grain features that Deft pulled out, maybe they do change. You know, yeah. Does that make sense?
+
+John Dudley  6:03  
+Yeah, yeah, definitely. I mean, I guess you know we're as Adam explained, right? We're you know we we weren't involved in development of Deft. We're mostly looking at sort of this interface layer, and so we're very interested in like you know how can you fit the fit this interface into people's workflows, right? And so that that idea hadn't really come came up before, but I think it's actually very interesting one, right? You've already got the tree, and you want to compare like two different datasets filtering filtering through it, right? Yeah, and it's quite a lot of information to try and take in and at one time, right?
+
+Ryan Sheridan  6:43  
+Yeah, like if you, yeah, I don't know. I mean, if you had the control tree and then you could switch, you know, from control data points to the other data points, and then color the leaves based on the change, something like that. I don't know. Yeah, some way to visualize the difference. It does seem quite complicated, you know, just training two trees and comparing them-that's outside of my expertise because that seems like the features could just be completely different. And then, how do you actually quantify the right?
+
+Adam Cheng  7:10  
+Yeah, that's the main challenge there.
+
+Ryan Sheridan  7:12  
+Yeah. So, anyways, yeah.
+
+Adam Cheng  7:15  
+Okay, great. I guess among the features that we took a look through. I mean, yeah. I mean, it might seem sort of like just like all the interface, but was there anything in particular that stood out that you thought was especially helpful?
+
+Ryan Sheridan  7:31  
+I mean, you know, the features on like GC content that are like upstream of the pause. You know those types of features, which are more kind of fine grained than what we had looked at before, I think is sort of the useful part. I mean, the you know deft pulls out kind of this single nucleotide, you know, you know, preference that we've seen before, but the other kind of minor features are, or you know, not necessarily minor, but the other features that it pulls out, I think, are the ones that are kind of interesting and useful. Yeah.
+
+Adam Cheng  8:11  
+And I guess lastly about like the embedded like AI agent there. Like I know we sort of discussed it a bit. Like you didn't have a chance necessarily to look through the whole output, but do you think it was helpful? Provided some sort of value, and I guess where yeah, where do you see it helping you most?
+
+Ryan Sheridan  8:27  
+I think it's yeah helpful. I think you know if it has some access to the literature, or you know if it can help frame things in. Yeah, I guess you'd want to do. I mean, that's helpful. Yeah, and also just asking it, I guess, about the different features. I'm trying to think. Yeah, I mean, I guess perhaps some framing in the literature giving you a place to start for further investigation. I think that seems helpful. Yeah,
+
+Adam Cheng  9:05  
+got it.
+
+Speaker 2  9:06  
+Okay,
+
+Adam Cheng  9:06  
+sounds good. I guess like just to wrap up, if there's any other last comments you have, yeah, now would be the time. But if not, that's okay as well.
+
+Ryan Sheridan  9:17  
+Oh, I don't think so. But I think it looks great. I guess did you guys you guys designed it all and and built it out.
+
+Adam Cheng  9:23  
+Yeah, so so I'm like a postgraduate student right now. So it's sort of this is my project to work on the interface for this for this like sort of deft project. So I I do machine learning, but specialize in human computer interaction. So trying to make the interface more accessible, but also intuitive for for users, basically.
+
+Ryan Sheridan  9:44  
+Yeah, I like it. Great job. Yeah, it looks good.
+
+Adam Cheng  9:47  
+Thank you. Well, yeah, but thank you so much for your time. Hopefully, we can stay in touch and perhaps give you some more progress as as it continues going. But thanks for your insights today. It's really helpful.
+
+Ryan Sheridan  10:00  
+Yeah, good to be here, guys. Thank you
+
+John Dudley  10:02  
+very much. Thank you very much, Ryan. It was really really good.
+
+Ryan Sheridan  10:06  
+Thanks. See ya. Bye.
+
+Adam Cheng  10:07  
+Bye. Okay. Yeah, we
+
+Transcribed by https://otter.ai

@@ -1,0 +1,19 @@
+{
+  "name": "deft-study-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Express + SQLite backend and static host for the DEFT HCI user study",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "cd deft && npm run build"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "nanoid": "^3.3.8",
+    "openai": "^6.45.0"
+  }
+}

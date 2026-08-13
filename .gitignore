@@ -1,0 +1,15 @@
+node_modules/
+deft/node_modules/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+dist/
+deft/dist/
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+data/
